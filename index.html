@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    PROJECT 2: AI on Cloud - Sentiment Analyzer using AWS Comprehend
+    CodTech Cloud Computing Internship
+    ============================================================
+    AWS Services Used:
+    - Amazon Comprehend: NLP / Sentiment Analysis
+    - AWS Lambda: Serverless backend
+    - API Gateway: REST API endpoint
+    ============================================================
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Sentiment Analyzer | AWS Comprehend</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">🤖 AI<span>Cloud</span></div>
+    <div class="service-badge">Powered by AWS Comprehend</div>
+  </header>
+
+  <!-- ===== MAIN APP ===== -->
+  <main>
+    <div class="app-container">
+
+      <!-- Title -->
+      <div class="title-block">
+        <h1>Sentiment <span class="gradient-text">Analyzer</span></h1>
+        <p>Real-time text analysis using Amazon Comprehend NLP service on AWS Cloud</p>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-section">
+        <label for="textInput">Enter text to analyze:</label>
+        <textarea
+          id="textInput"
+          placeholder="Type or paste any text here... e.g. 'I absolutely love this cloud computing course! The AWS services are amazing.'"
+          rows="5"
+        ></textarea>
+        <div class="input-footer">
+          <span id="charCount">0 / 500 characters</span>
+          <button id="analyzeBtn" class="analyze-btn" onclick="analyzeText()">
+            <span class="btn-icon">⚡</span> Analyze with AWS
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Section (hidden initially) -->
+      <div class="results-section" id="results" style="display:none;">
+        <h3>Analysis Results</h3>
+
+        <!-- Sentiment Score Card -->
+        <div class="result-card sentiment-card" id="sentimentCard">
+          <div class="sentiment-emoji" id="sentimentEmoji">😐</div>
+          <div class="sentiment-info">
+            <div class="sentiment-label" id="sentimentLabel">NEUTRAL</div>
+            <div class="confidence-bar-wrap">
+              <div class="confidence-bar" id="confidenceBar"></div>
+            </div>
+            <div class="confidence-text" id="confidenceText">Confidence: --</div>
+          </div>
+        </div>
+
+        <!-- Score Breakdown -->
+        <div class="score-breakdown" id="scoreBreakdown"></div>
+
+        <!-- Detected Language -->
+        <div class="meta-info" id="metaInfo"></div>
+
+        <!-- AWS Request Info (simulated) -->
+        <div class="aws-info">
+          <div class="aws-info-title">🔧 AWS API Response</div>
+          <pre id="awsResponse" class="code-block"></pre>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading" id="loading" style="display:none;">
+        <div class="spinner"></div>
+        <p>Calling Amazon Comprehend API...</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works">
+    <h2>Architecture</h2>
+    <div class="arch-flow">
+      <div class="arch-node"><div class="arch-icon">📝</div><div>User Input</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node"><div class="arch-icon">🌐</div><div>API Gateway</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node"><div class="arch-icon">λ</div><div>Lambda</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><div class="arch-icon">🧠</div><div>AWS Comprehend</div></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
